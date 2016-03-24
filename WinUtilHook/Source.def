@@ -1,0 +1,6 @@
+LIBRARY
+SECTIONS
+     .shareddata     READ WRITE SHARED
+EXPORTS
+	WinUtil_SetHook
+	WinUtil_UnsetHook
