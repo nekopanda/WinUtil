@@ -108,7 +108,7 @@ namespace WinUtil
             windowFixTimer.Interval = 200;
             windowFixTimer.Tick += WindowFixTimer_Tick;
 
-            displayChangedTimer.Interval = 500;
+            displayChangedTimer.Interval = 30 * 1000;
             displayChangedTimer.Tick += DisplayChangedTimer_Tick;
 
             // 64bitプロセスを開始
@@ -341,6 +341,14 @@ namespace WinUtil
                 listBox1.Items.RemoveAt(100);
             }
             listBox1.Items.Insert(0, DateTime.Now.ToLongTimeString() + ": " + text);
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            if(displayChangedTimer.Enabled)
+            {
+                DisplayChangedTimer_Tick(null, null);
+            }
         }
     }
 }
